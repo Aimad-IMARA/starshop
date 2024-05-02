@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} Home{% endblock %}
+{% block body %}
+<h1>StarShop</h1>
+<p>{{ numberOfStarships }} starships available!</p>
+{% if numberOfStarships > 0 %}
+    <p>There's available ships</p>
+{% endif %}
+    <h2>My ships: </h2>
+    <div>
+        <table border="1" style="text-align: center">
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+            </tr>
+            {% for ship in ships %}
+                <tr>
+                    <td>
+                        <a href="{{ path('app_starship_show',{id:ship.id}) }}">
+                            {{ ship.name }}
+                        </a>
+                    </td>
+                    <td>{{ ship.id }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
