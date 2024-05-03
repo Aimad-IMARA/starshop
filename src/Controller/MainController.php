@@ -20,6 +20,7 @@ class MainController extends AbstractController
             'main/homepage.html.twig', [
                 'numberOfStarships' => $shipsCount,
                 'ships' => $ships,
+                'myShip' => $myShip
             ]);
     }
 }
